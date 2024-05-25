@@ -1,0 +1,126 @@
+{% extends 'headfoot.html' %}
+{% load static %}
+{% block content %}
+        <link rel="stylesheet" href="{% static 'assets/css/artist.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/profile.css' %}">
+        <input type="text" value="{{artist_id}}" id="artistId" hidden="hidden">
+
+        <div class="web1">
+            
+            <div class="artist-top">
+                <!-- <img src="" alt="">
+                    <div class="artist-fo">
+                        <h1></h1>
+                        <p></p>
+                    </div> -->
+            </div>
+            
+            <div class="p-f">
+                <i class="fa fa-circle-play"></i>
+                <button onclick="followThis()">{{followText}}</button>
+            </div>
+            <script>
+            
+            function followThis(){
+                let btnfollow=document.querySelector('.p-f button');
+                let btnstate=btnfollow.innerHTML=='Follow';
+                // console.log(btnstate);
+                btnfollow.textContent=btnstate?'Following':'Follow';
+                let geturl=btnfollow.getAttribute('get-data');
+                $.ajax({
+                    type: 'GET',
+                    url: geturl,  // Replace with your view URL
+                    success: function(response) {
+                        // console.log(response);
+                    },
+                    error: function(error) {
+                        console.error(error);
+                    }
+                });
+                
+            }
+            
+            
+            </script>
+            <h2>Popular Songs</h2>
+            <div class="artist-songs" id="popular-list-data">
+                <!-- <div class="artist-song-ele">
+                    <div class="ppp">
+                        1
+                    </div>
+                    <img src="assets/img/better-cover.png" alt="">
+                    <div class="music-col">
+                        <h3>Music Name</h3>
+                        <p>Artist Name</p>
+                    </div>
+                    <div class="ppp" id="ax">
+                        <p>Album Name</p>
+                    </div>
+                    <div class="ppp">
+                        <p>2:47</p>
+                    </div>
+                </div> -->
+                
+            </div>
+            <p class="see-more" id="toggleMore">See More</p>
+        </div>
+
+        <div class="web1">
+            <div class="web1-head">
+                <div class="web1-ele">
+                    <p>Artist Albums</p>
+                </div>
+                <div class="web1-ele1">
+                    <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                    &nbsp;&nbsp;
+                    <i class="fa-solid fa-chevron-right" id="move-right"></i>
+                </div>
+            </div>
+            <div id="load">
+                <center>
+                    <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+                </center>
+            </div>
+            <div class="web2-grid" id="artist-album-data">
+                <!-- <div class="web2-ele">
+                    <img src="assets/img/album-cover.jpg" alt="">
+                    <div class="web2-title">
+                        <h3>Album Name</h3>
+                        <p>Artist Name</p>
+                    </div>
+                </div> -->
+                                
+            </div>
+        </div>
+        
+        <div class="web1">
+            <div class="web1-head">
+                <div class="web1-ele">
+                    <p>Similar artists</p>
+                </div>
+                <div class="web1-ele1">
+                    <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                    &nbsp;&nbsp;
+                    <i class="fa-solid fa-chevron-right" id="move-right"></i>
+                </div>
+            </div>
+            <div id="load">
+                <center>
+                    <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+                </center>
+            </div>
+            <div class="web2-grid" id="similar-artist-data">
+                <!-- <div class="web3-ele">
+                    <img src="assets/img/billie-cover.jpg" alt="">
+                    <div class="web2-title">
+                        <center>
+                            <h3>Artist Name</h3>
+                        </center>
+                    </div>
+                </div>  -->
+                
+            </div>
+        </div>
+       
+{% endblock %}
+

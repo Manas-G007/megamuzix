@@ -1,0 +1,124 @@
+{% extends 'headfoot.html' %}
+{% load static %}     
+
+{% block content %}        
+    <div class="web1">
+        <div class="web1-head">
+            <div class="web1-ele">
+                <p>Music Genres</p>
+            </div>
+            <div class="web1-ele1">
+                <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                &nbsp;&nbsp;
+                <i class="fa-solid fa-chevron-right" id="move-right"></i>
+            </div>
+        </div>
+        <div id="load">
+            <center>
+                <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+            </center>
+        </div>
+        <div class="web2-grid" id="genres-list-data">
+            <!-- <div class="web3-ele">
+                <img src="assets/img/billie-cover.jpg" alt="">
+                <div class="web2-title">
+                    <center>
+                        <h3>Pop</h3>
+                    </center>
+                </div>
+            </div>  -->
+        </div>
+    </div>
+
+    <div class="web1">
+        <div class="web1-head">
+            <div class="web1-ele">
+                <p>Trending Music</p>
+            </div>
+            <div class="web1-ele1">
+                <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                &nbsp;&nbsp;
+                <i class="fa-solid fa-chevron-right" id="move-right"></i>
+            </div>
+        </div>
+        <div id="load">
+            <center>
+                <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+            </center>
+        </div>
+        <div class="web1-grid" id="trending-music-data">
+            <!-- <div class="web1-grid-ele">
+                <img src="assets/img/joytime-cover.jpg" alt="">
+                <div class="music-col">
+                    <h3>Music Name</h3>
+                    <p>Artist Name</p>
+                </div>
+                <div class="web1-icon">
+                    <i class="fa-solid fa-circle-play"></i>
+                    <p>3:12</p>
+                </div>
+            </div>  -->
+            
+        </div>
+    </div>
+
+    <div class="web1">
+        <div class="web1-head">
+            <div class="web1-ele">
+                <p>Mega Hits</p>
+            </div>
+            <div class="web1-ele1">
+                <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                &nbsp;&nbsp;
+                <i class="fa-solid fa-chevron-right" id="move-right"></i>
+            </div>
+        </div>
+        <div id="load">
+            <center>
+                <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+            </center>
+        </div>
+        <div class="web2-grid" id="mega-hits-data">
+            <!-- <div class="web2-ele">
+                <img src="assets/img/playlist-cover.jpg" alt="">
+                <div class="web2-title">
+                    <h3>Playlist Name</h3>
+                    <p>Artist Name</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="web1">
+        <div class="web1-head">
+            <div class="web1-ele">
+                <p>Best Music</p>
+            </div>
+            <div class="web1-ele1">
+                <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                &nbsp;&nbsp;
+                <i class="fa-solid fa-chevron-right" id="move-right"></i>
+            </div>
+        </div>
+        <div id="load">
+            <center>
+                <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+            </center>
+        </div>
+        <div class="web1-grid" id="best-music-data">
+            <!-- <div class="web1-grid-ele">
+                <img src="assets/img/joytime-cover.jpg" alt="">
+                <div class="music-col">
+                    <h3>Music Name</h3>
+                    <p>Artist Name</p>
+                </div>
+                <div class="web1-icon">
+                    <i class="fa-solid fa-circle-play"></i>
+                    <p>3:12</p>
+                </div>
+            </div> 
+                -->
+        </div>
+    </div>
+
+{% endblock %}

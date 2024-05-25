@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/bg.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/nav-mus.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/sliders.css' %}">
+    <script src="{% static 'assets/js/get-token.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="b1"></div>
+    <div class="b2"></div>
+    <div class="b3"></div>
+    <div class="b4"></div>
+    <div class="fullblur"></div>
+
+    <main>
+        <div class="navbar">
+            <a href="/">
+            <div class="logo-nav">
+                <img src="{% static 'assets/img/megamuzix-white-trans.png' %}" alt="">
+            </div>
+            </a>
+
+            <div class="menu">
+                <div class="input-search">
+                    <input type="search" value="{{search_term}}" name="" id="searchTerm" placeholder="SEARCH ...">
+                </div>
+                
+                <div class="menu-ele" onclick="">
+                    <a href="/"><p id="home-load" load-state="false">HOME</p></a>
+                </div>
+                <div class="menu-ele">
+                    <a href="/explore"><p  id="explore-load" load-state="false">EXPLORE</p></a>
+                </div>
+                <div class="menu-ele">
+                    <p>LIBRARY</p>
+                </div>
+                <div class="menu-ele-icon" onclick="searchIt()">
+                    <i class="fa fa-search"></i>
+                </div>
+            </div>
+            <a href="" id="secretSearch" hidden="hidden"></a>
+            <script>
+                function searchIt(){
+                    let tempSearch=document.querySelector('#searchTerm');
+
+                    if(tempSearch.value!=''){
+                        let temp=`/search?q=${tempSearch.value}`;
+                        let searchlink=document.querySelector('#secretSearch');
+                        searchlink.href=temp;
+
+                        searchlink.click();
+                    }
+                }
+            </script>
+
+            <div class="menu-side">
+                
+                <img src="{{user_profile.profileImg.url}}" alt="">
+                <div class="user-name">
+                    <p>
+                    {{user_profile.user}}
+                    </p>
+                </div>
+                
+                <div class="drop-down">
+                    <a href="/profile"><p>Profile</p></a>
+                    <p onclick="window.location.href='/logout'">Logout</p>
+                </div>
+            </div>
+        </div>
+
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</main>
+<div class="desk-full">
+    <img src="" alt="">
+</div>
+
+<div class="music-player">
+    <div class="music-slider">
+        <input type="range" min="0" max="100" value="0" id="web-track">
+    </div>
+    <div class="music-left">
+        <div class="music-img">
+            <img src="https://picsum.photos/200/300" alt="">
+        </div>
+        <div class="music-col" id="music-artist-sub">
+            <h3>Pick Any Music</h3>
+            <p>Do it</p>
+        </div>
+        <div class="music-like">
+            <i class="fa fa-heart"></i>
+        </div>
+    </div>
+    <div class="music-mid">
+        <i class="fa fa-rotate"></i>
+        <i class="fa fa-angles-left" id="l"></i>
+        <i class="fa-solid fa-play" id="p"></i>
+        <i class="fa fa-angles-right" id="r"></i>
+        <i class="fa fa-shuffle"></i>
+    </div>
+    <div class="music-right">
+        <i class="fa fa-circle-chevron-up"></i>
+        <div class="vol">
+            <i class="fa fa-volume-high"></i>
+            <input type="range" min='0' max='100' value="100" style="overflow: hidden;margin-left:10px" class="vol-track">
+        </div>
+        <div class="music-time">
+            <p>--:-- / --:--</p>
+        </div>
+    </div>
+</div>
+
+<div class="final-mob">
+    <div class="mob-bg">
+    </div>
+    <div class="mob-full">
+        <div class="full-title">
+            <p>Now Playing</p>
+            <i class="fa fa-chevron-down"></i>
+        </div>
+
+        <div class="mob-cover">
+            <img src="" alt="">
+        </div>
+
+        <div class="mob-bot-down">
+            <div class="full-music-mid">
+                <div class="mob-music-name" id="music-artist-sub">
+                    <h3>Music Name</h3>
+                    <p>Artist Name</p>
+                </div>
+                <div class="music-like" style="margin: 0;padding: 0;text-align: right;">
+                    <i class="fa fa-heart"></i>
+                </div>
+                
+            </div>
+    
+            <div class="full-track">
+                <input type="range" name="" id="mob-full-track">
+                <p id="mob-ll">0:00</p>
+                <p id="mob-rr" style="text-align: right;">3:00</p>
+            </div>
+    
+            <div class="mob-music-mid">
+                <i class="fa fa-rotate"></i>
+                <i class="fa fa-angles-left" id="mob-l"></i>
+                <i class="fa-solid fa-play" id="mob-p"></i>
+                <i class="fa fa-angles-right" id="mob-r"></i>
+                <i class="fa fa-shuffle"></i>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="music-mob">
+    <a href="/">
+    <div class="mob-ele">
+        <i class="fa-solid fa-house"></i>
+        <p>HOME</p>
+    </div>
+    </a>
+    <a href="/search?q=">
+    <div class="mob-ele">
+        <i class="fa fa-search"></i>
+        <p>SEARCH</p>
+    </div>
+    </a>
+    <div class="mob-ele" id="mob-play">
+        <img src="{% static 'assets/img/music-wave.gif' %}" alt="" id="pause-gif">
+        <i class="fa-solid fa-play" id="mob-play-i"></i>
+    </div>
+    <a href="/explore">
+    <div class="mob-ele">
+        <i class="fa-solid fa-compass"></i>
+        <p>EXPLORE</p>
+    </div>
+    </a>
+    <div class="mob-ele">
+        <i class="fa-solid fa-book"></i>
+        <p>LIBRARY</p>
+    </div>
+</div>
+
+
+<audio controls src="" id="real-controller">
+
+</audio>
+
+
+
+<script src="{% static 'assets/js/scroll.js' %}"></script>
+<script src="{% static 'assets/js/full-screen.js' %}"></script>
+<script src="{% static 'assets/js/search.js' %}"></script>
+<script src="{% static 'assets/js/like.js' %}"></script>
+<script src="{% static 'assets/js/music-controller.js' %}"></script>
+<script src="{% static 'assets/js/play-on-track.js' %}"></script>
+
+<script src="{% static 'assets/js/index-data.js' %}"></script>
+<script src="{% static 'assets/js/explore-data.js' %}"></script>
+<script src="{% static 'assets/js/search-data.js' %}"></script>
+<script src="{% static 'assets/js/playlist-data.js' %}"></script>
+<script src="{% static 'assets/js/artist-data.js' %}"></script>
+
+<script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+</html>

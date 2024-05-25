@@ -1,0 +1,98 @@
+{% extends 'headfoot.html' %}
+{% load static %}
+{% block content %}
+        <link rel="stylesheet" href="{% static 'assets/css/artist.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/playlist.css' %}">
+    
+        {% if type == 'album' or type == 'single' %}
+        <input type="text" value="" id="playlist" hidden="hidden">
+        <input type="text" value="{{card_id}}" id="album" hidden="hidden">
+        {% else %}
+        <input type="text" value="{{card_id}}" id="playlist" hidden="hidden">
+        <input type="text" value="" id="album" hidden="hidden">
+        {% endif %}
+        
+        <div class="web1">
+            <div id="load">
+                <center>
+                    <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+                </center>
+            </div>
+            <div class="play-blur-info" id="top-card-data">
+                <!-- <div class="back-img-bg"
+                    style="
+                    background: url('assets/img/ed-play.jpg');
+                    background-size: cover;
+                    background-position: center;">
+                </div>
+                <div class="front-play-info">
+                    <img src="assets/img/ed-play.jpg" alt="">
+                    <div class="front-info">
+                        <p>Public Playlist</p>
+                        <h1>Playlist Name</h1>
+                        <p>Artist Name</p>
+                        <p>30+ Songs, 3hrs</p>
+                    </div>
+                </div> -->
+            </div>
+            <div class="phm">
+                <div class="phm1">
+                  <i class="fa fa-circle-play" id="temp-play"></i>
+                    <div class="music-like" id="card-like" onclick="templike()">
+                        <i class="{{likeText}}"></i>
+                    </div>  
+                </div>
+                <div class="phm2">
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+            <script>
+                function templike(){
+                    let geturl=document.querySelector('#card-like').getAttribute('get-data');
+                    let likeeStatee=document.querySelector('#card-like i');
+                    likeeStatee.className=likeeStatee.className=='fa fa-heart'?'fa-regular fa-heart':'fa fa-heart';
+                    $.ajax({
+                        type: 'GET',
+                        url: geturl,  // Replace with your view URL
+                        success: function(response) {
+                            // console.log(response);
+                        },
+                        error: function(error) {
+                            console.error(error);
+                        }
+                    });
+                }
+                
+                
+                </script>
+            <div class="meta-list-info">
+                <p>#</p>
+                <p>Title</p>
+                <p id="ax">Album</p>
+                <p>Duration</p>
+            </div>
+            <div id="load">
+                <center>
+                    <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+                </center>
+            </div>
+            <div class="artist-songs" id="playlist-song-data">
+                <!-- <div class="artist-song-ele">
+                    <div class="ppp">
+                        1
+                    </div>
+                    <img src="assets/img/better-cover.png" alt="">
+                    <div class="music-col">
+                        <h3>Music Name</h3>
+                        <p>Artist Name</p>
+                    </div>
+                    <div class="ppp" id="ax">
+                        <p>Album Name</p>
+                    </div>
+                    <div class="ppp">
+                        <p>2:47</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+{% endblock %}  

@@ -1,0 +1,123 @@
+{% extends 'headfoot.html' %}
+{% load static %}   
+
+{% block content %}
+    <div class="web1">
+        <div class="web1-head">
+            <div class="web1-ele">
+                <p>Good Morning</p>
+            </div>
+            <div class="web1-ele1">
+                <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                &nbsp;&nbsp;
+                <i class="fa-solid fa-chevron-right" id="move-right"></i>
+            </div>
+        </div>
+        <div id="load">
+            <center>
+                <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+            </center>
+        </div>
+        <div class="web1-grid" id="top-track-lists">
+            <!-- <div class="web1-grid-ele">
+                <img src="assets/img/joytime-cover.jpg" alt="">
+                <div class="music-col">
+                    <h3>Music Name</h3>
+                    <p>Artist Name</p>
+                </div>
+                <div class="web1-icon">
+                    <i class="fa-solid fa-circle-play"></i>
+                    <p>3:12</p>
+                </div>
+            </div>  -->
+            
+        </div>
+    </div>
+
+    <div class="web1">
+        <div class="web1-head">
+            <div class="web1-ele">
+                <p>New Release</p>
+            </div>
+            <div class="web1-ele1">
+                <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                &nbsp;&nbsp;
+                <i class="fa-solid fa-chevron-right" id="move-right"></i>
+            </div>
+        </div>
+        <div id="load">
+            <center>
+                <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+            </center>
+        </div>
+        <div class="web2-grid" id="newReleaseData">
+            
+            <!-- <div class="web2-ele">
+                <img src="assets/img/album-cover-1.jpg" alt="">
+                <div class="web2-title">
+                    <h3>Album Name</h3>
+                    <p>Artist Name</p>
+                </div>
+            </div> -->
+            
+        </div>
+    </div>
+    
+    <div class="web1">
+        <div class="web1-head">
+            <div class="web1-ele">
+                <p>Rising Stars</p>
+            </div>
+            <div class="web1-ele1">
+                <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                &nbsp;&nbsp;
+                <i class="fa-solid fa-chevron-right" id="move-right"></i>
+            </div>
+        </div>
+        <div id="load">
+            <center>
+                <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+            </center>
+        </div>
+        <div class="web2-grid" id="artist-data-list">
+            <!-- <div class="web3-ele">
+                <img src="assets/img/billie-cover.jpg" alt="">
+                <div class="web2-title">
+                    <center>
+                        <h3>Artist Name</h3>
+                    </center>
+                </div>
+            </div> 
+                -->
+        </div>
+    </div>
+
+    <div class="web1">
+        <div class="web1-head">
+            <div class="web1-ele">
+                <p>Featured Playlist</p>
+            </div>
+            <div class="web1-ele1">
+                <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                &nbsp;&nbsp;
+                <i class="fa-solid fa-chevron-right" id="move-right"></i>
+            </div>
+        </div>
+        <div id="load">
+            <center>
+                <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+            </center>
+        </div>
+        <div class="web2-grid" id="featuredPlaylist">
+            <!-- <div class="web2-ele">
+                <img src="assets/img/playlist-cover.jpg" alt="">
+                <div class="web2-title">
+                    <h3>Playlist Name</h3>
+                    <p>Artist Name</p>
+                </div>
+            </div> -->
+            
+        </div>
+    </div>
+{% endblock %}
+

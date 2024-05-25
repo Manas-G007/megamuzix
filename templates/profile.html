@@ -1,0 +1,251 @@
+{% extends 'headfoot.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .edit-dp-bg{
+            position:fixed;
+            display: none;
+            z-index: 20;
+            top:0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            backdrop-filter: blur(20px);
+            padding-top:100px;
+        }
+        .edit-dp{
+            display: grid;
+            margin: 0 auto;
+            width: 400px;
+            padding: 30px 0;
+            border-radius: 10px;
+            text-align: center;
+            background: rgba(35,35,35,0.8);
+        }
+        .image-dp{
+            position: relative;
+            display: grid;
+            margin: 0 auto;
+            height: 240px;
+            width: 240px;
+            border-radius: 50%;
+            background: rgb(132, 132, 132);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .image-dp img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .upload-dp{
+            position: absolute;
+            bottom:0;
+            left: 0;
+            right: 0;
+            background: rgba(35,35,35,0.4);
+            backdrop-filter:blur(30px);
+        }
+        .upload-dp h2{
+            margin: 12px 0;
+            margin-bottom: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .button-dp button{
+            border: none;
+            outline: none;
+            width: 80%;
+            border-radius: 10px;
+            padding: 10px 0;
+            font-size: large;
+            font-family: inherit;
+            cursor: pointer;
+        }
+        @media screen and (max-width:600px) {
+            .edit-dp-bg{
+                padding-top:160px;
+            }
+            .edit-dp{
+                width: 90%;
+            }
+            .image-dp{
+                height: 180px;
+                width: 180px;
+            }
+            .upload-dp h2{
+                margin: 8px 0;
+                margin-bottom: 12px;
+                font-size: medium;
+            }
+        }
+    </style>
+    <div class="edit-dp-bg">
+        <form action="/updateProfile" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="edit-dp">
+            <div class="image-dp">
+                <img src="{{user_profile.profileImg.url}}" id="display-dp">
+                <div class="upload-dp">
+                    <label for="dp">
+                    <h2>Pick Image</h2>
+                    </label>
+                </div>
+            </div>
+            <input type="file" name="dp" id="dp" hidden="hidden">
+            <div class="button-dp">
+                <button type="submit">Upload</button>
+            </div>
+        </div>
+        </form>
+    </div>
+
+    
+
+    <link rel="stylesheet" href="{% static 'assets/css/profile.css' %}">
+
+    <div class="web1">
+        <div class="pro-pro">
+            <div class="pro-down"
+            style="
+            background: url('{{user_profile.profileImg.url}}');
+            background-size: cover;
+            background-position: center;
+            ">
+            </div>
+            <div class="pro-up">
+                <div class="pro-img-web1">
+                    <img src="{{user_profile.profileImg.url}}" alt="">
+                    <i class="fa fa-pencil"></i>
+                </div>
+                <div class="pro-info">
+                    <p>Profile</p>
+                    <h1>{{user_profile.user}}</h1>
+                    <br>
+                    <p>{{ followed_artists|length }} Following Artists</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var imageInput = document.getElementById('dp');
+        var selectedImage = document.getElementById('display-dp');
+
+        imageInput.addEventListener('change', function () {
+            if (imageInput.files && imageInput.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    selectedImage.src = e.target.result;
+                };
+
+                reader.readAsDataURL(imageInput.files[0]);
+            }
+        });
+        var pencil=document.querySelector('.pro-img-web1 i');
+        pencil.addEventListener('click',()=>{
+            document.querySelector('.edit-dp-bg').style='display:block';
+        })
+    </script>
+   
+
+    <div class="web1">
+        {% if liked_songs|length != 0 %}
+        <div class="web1-head">
+            <div class="web1-ele">
+                <p>Liked Songs</p>                
+            </div>
+            <div class="web1-ele1">
+                <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                &nbsp;&nbsp;
+                <i class="fa-solid fa-chevron-right" id="move-right"></i>
+            </div>
+        </div>
+        {% endif %}
+        <div class="web1-grid" id="move-grid">
+            {% for song in liked_songs %}
+            <div class="web1-grid-ele" onclick='playOnTrack("{{song.mid}}")'>
+                <img src="{{song.img_url}}" alt="">
+                <div class="music-col">
+                    <h3>{{song.title}}</h3>
+                    <p>{{song.name}}</p>
+                </div>
+                <div class="web1-icon">
+                    <i class="fa-solid fa-circle-play"></i>
+                    <p>{{song.duration}}</p>
+                </div>
+            </div>    
+            {% endfor %}            
+        </div>
+    </div>
+
+    <div class="web1">
+        {% if followed_artists|length != 0 %}
+        <div class="web1-head">
+            <div class="web1-ele">
+                
+                <p>Followed Artists</p>
+              
+            </div>
+            <div class="web1-ele1">
+                <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                &nbsp;&nbsp;
+                <i class="fa-solid fa-chevron-right" id="move-right"></i>
+            </div>
+        </div>
+        {% endif %}
+        <div id="load" hidden="hidden">
+            
+        </div>
+        <div class="web2-grid" id="similar-artist-data">
+            {% for artist in followed_artists %}
+            <a href='/artist/{{artist.aid}}'>
+            <div class="web3-ele">
+                <img src="{{artist.img_url}}" alt="">
+                <div class="web2-title">
+                    <center>
+                        <h3>{{artist.name}}</h3>
+                    </center>
+                </div>
+            </div> 
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="web1">
+        {% if liked_cards|length != 0 %}
+        <div class="web1-head">
+            <div class="web1-ele">
+                <p>Liked Playlist & Album</p>
+            </div>
+            <div class="web1-ele1">
+                <i class="fa-solid fa-chevron-left" id="move-left"></i>
+                &nbsp;&nbsp;
+                <i class="fa-solid fa-chevron-right" id="move-right"></i>
+            </div>
+        </div>
+        {% endif %}
+        <div id="load" hidden="hidden">
+            <center>
+                <img src="{% static 'assets/img/loading.webp' %}" alt="" >
+            </center>
+        </div>
+        <div class="web2-grid" id="artist-album-data">
+            {% for card in liked_cards %}
+            <a href="/card?type={{card.name}}&id={{card.cid}}">
+            <div class="web2-ele">
+                <img src="{{card.img_url}}" alt="">
+                <div class="web2-title">
+                    <h3>{{card.title}}</h3>
+                    <p>{{card.name}}</p>
+                </div>
+            </div>
+            </a>
+            {% endfor %}     
+        </div>
+    </div>
+
+{% endblock %}
+    
+   

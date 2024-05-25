@@ -1,0 +1,125 @@
+
+.logo img{
+    margin: 10px 0;
+    width: 260px;
+}
+
+.form-1{
+    display: grid;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 400px;
+    background: rgba(35,35,35,0.7);
+    padding: 3.5% 2.5%;
+    border-radius: 10px;
+}
+.headform{
+    padding-bottom: 10px;
+}
+.headform h1{
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+.headform p{
+    font-size: 0.95rem;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.icon-input{
+    display: grid;
+    grid-template-columns: 95% 5%;
+    border: 1px solid transparent;
+    border-bottom-color: white;
+    margin: 10px 0;
+    padding: 10px 2px;
+}
+.icon-input input{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: large;
+    letter-spacing: 1px;
+    color:inherit;
+}
+.icon-input i{
+    text-align: center;
+    cursor: pointer;
+}
+.fp{
+    cursor: pointer;
+    text-align: right;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+button{
+    border: none;
+    outline: none;
+    font-style: inherit;
+    font-size: larger;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 2.5% 0;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+button:hover{
+    color:white;
+    background: black;
+}
+.line{
+    margin: auto;
+    width:100%;
+    height: 0.5px;
+    background: white;
+}
+.orline{
+    display: flex;
+    padding: 10px 0;
+}
+.orline p{
+    padding: 0 10px;
+    font-size: large;
+}
+.signGoogle{
+    width: 100%;
+    margin: 0 auto;
+    color: white;
+    background: black;
+    border-radius: 10px;
+    padding:3% 0;
+    margin: 10px 0;
+    font-size: large;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.signGoogle:hover{
+    font-weight: bold;
+    color:black;
+    background: white;
+}
+
+@media screen and (max-width:500px) {
+    .logo img{
+        width: 230px;
+    }
+    .form-1{
+        width: auto;
+        margin-top: 100px;
+        padding: 3.5% 7.5%;
+        background: transparent;
+    }
+    .headform h1{
+        font-size: 2.1rem;
+    }
+    .headform p{
+        font-size: small;
+        cursor: pointer;
+        padding: 10px 0;
+    }
+    .fp{
+        font-size: small;
+    }
+}

@@ -1,0 +1,110 @@
+body{
+    scroll-behavior: smooth;
+    background:black;
+    color:white;
+    margin: 0;
+    font-family: 'Ubuntu';
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent; 
+}
+a{
+    color:white;
+    text-decoration: none;
+}
+main{
+    position: relative;
+    z-index: 3;
+    padding-bottom: 70px;
+}
+::selection {
+    color: white;
+    background: purple;
+}
+h1,h2,h3{
+    margin: 0;
+}
+p{
+    margin: 0;
+    letter-spacing: 1px;
+}
+::placeholder{
+    color:white;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.b1,.b2,.b3,.b4{
+    position: fixed;
+    width: 750px;
+    height: 750px;
+    border-radius: 50%;   
+    z-index: 1;
+}
+.b1{
+    top:-250px;
+    left: 100px;
+    background: #0038FE;
+}
+.b2{
+    top:-250px;
+    right: -50px;
+    background: #C900EA;
+}
+.b3{
+    bottom:-250px;
+    left: -50px;
+    background: #00B2FF;
+}
+.b4{
+    bottom:-250px;
+    right: 100px;
+    background: #8C00E1;
+}
+.fullblur{
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(150px);
+    -webkit-backdrop-filter: blur(150px);
+
+}
+@media screen and (max-width:1200px) {
+    .b1,.b2,.b3,.b4{
+        width: 600px;
+        height: 600px;
+    }
+}
+@media screen and (max-width:500px) {
+    .b1,.b2,.b3,.b4{
+        width: 340px;
+        height: 340px;
+    }
+    .fullblur{
+        background: rgba(0,0,0,0.1);
+        backdrop-filter: blur(140px);
+    }
+    .b1{
+        top:-80px;
+        left:-80px;
+        background: #0038FE;
+    }
+    .b2{
+        top:150px;
+        right: -100px;
+        background: #C900EA;
+    }
+    .b3{
+        top:360px;
+        left: -100px;
+        background: #00B2FF;
+    }
+    .b4{
+        top:600px;
+        right: -80px;
+        background: #8C00E1;
+    }
+}

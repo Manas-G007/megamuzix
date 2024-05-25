@@ -1,0 +1,193 @@
+.web1{
+    display: block;
+    margin: 0 auto;
+    width: 980px;
+}
+.web1-head{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    font-size: 1.7rem;
+    margin: 15px 0;
+}
+.web1-ele1{
+    text-align: right;
+    font-size: 1.5rem;
+    padding-top: 5px;
+}
+.web1-ele1 i{
+    cursor: pointer;
+}
+.web1-grid{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    width: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+.web1-grid-ele{
+    position: relative;
+    display: grid;
+    grid-template-columns: max-content auto;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 340px;
+    height: max-content;
+    background: rgba(35,35,35,0.6);
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.web1-grid-ele img{
+    width: 75px;
+    height:75px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+.music-col1{
+    line-height: 1.5;
+    padding: 0 20px;
+    padding-top: 12px;
+}
+.music-col1 h3{
+    font-weight: 100;
+    font-size: 1.1rem;
+}
+.music-col1 p{
+    font-size: 0.8rem;
+}
+.web1-icon{
+    position: absolute;
+    top:0;
+    right: 0;
+    opacity: 0;
+    text-align: center;
+    padding: 15px 10px;
+}
+.web1-grid-ele:hover .web1-icon{
+    opacity: 1;
+}
+.web1-icon i{
+    font-size: 1.7rem;
+}
+.web1-icon p{
+    padding-top: 5px;
+    font-size:small;
+}
+/* ------------ */
+#load{
+    padding: 60px 0;
+}
+#load img{
+    width: 120px;
+}
+@media screen and (max-width:600px) {
+    .web1{
+        width: 90%;
+    }
+    .web1-head{
+        grid-template-columns: 1fr;
+        font-size: 1.7rem;
+        padding-bottom: 10px;
+    }
+    .web1-ele1,.web1-icon{
+        display: none;
+    }
+    .web1-grid-ele img{
+        width: 60px;
+        height: 60px;
+    }
+    .web1-grid-ele{
+        width: 260px;
+    }
+    .music-col1{
+        line-height: 1.5;
+        padding: 0 10px;
+        padding-right: 0;
+        padding-top: 7px;
+    }
+    .music-col{
+        padding: 0;
+        padding-top: 10px;
+    }
+    .music-col h3,.music-col1 h3{
+        font-size: 1rem;
+    }
+    .music-col p,.music-col1 p{
+        font-size: 0.8rem;
+    }
+    #load{
+        padding: 30px 0;
+    }
+    #load img{
+        width: 80px;
+    }
+}
+
+.web2-grid{
+    white-space: nowrap;
+    width: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+.web2-ele,.web3-ele{
+    display: inline-block;
+    position: relative;
+    width: 220px;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 8px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.web3-ele{
+    width: 190px;
+    height: 240px;
+}
+.web2-ele img,.web3-ele img{
+    width:100%;
+    height: 99%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.web2-title{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(30px);
+}
+.web2-title h3{
+    font-weight: 100;
+    font-size: 1rem;
+}
+.web2-title p{
+    padding-top: 5px;
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width:600px) {
+    .web1-head{
+        padding: 0;
+    }
+    .web2-ele{
+        width: 170px;
+        height: 220px;
+    }
+    .web3-ele{
+        width: 170px;
+        height: 210px;
+    }
+    .web2-title h3{
+        font-size: 1rem;
+    }
+    .web2-title p{
+        padding-top: 5px;
+        font-size: 0.8rem;
+    }
+}

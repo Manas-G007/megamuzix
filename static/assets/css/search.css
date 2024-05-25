@@ -1,0 +1,153 @@
+.cool-1{
+    display: block;
+    margin: 0 auto;
+    width: 900px;
+}
+.cool-search{
+    display: grid;
+    grid-template-columns: 45% 55%;
+}
+.cool-ele1{
+    position: relative;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    background:rgba(35,35,35,0.6);
+    margin-right: 10px;
+    border-radius: 10px;
+    height: fit-content;
+    cursor: pointer;
+}
+.cool-img{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 25.5px;
+}
+.cool-img img{
+    width: 100%;
+    /* height: 100%; */
+    object-fit: cover;
+    /* object-position: center; */
+}
+.cool-info{
+    margin-top: 50px;
+    line-height: 1.6;
+}
+
+.cool-play{
+    position: absolute;
+    opacity: 0;
+    bottom:10px;
+    right: 15px;
+    font-size: 3rem;
+    transition: all 0.15s ease-in-out;
+}
+.cool-ele1:hover .cool-play{
+    opacity: 1;
+}
+.cool-card{
+    display: grid;
+    grid-template-columns: 15% 75% 10%;
+    border-radius: 10px;
+    background: rgba(35,35,35,0.6);
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.cool-card img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+.cool-title{
+    margin-top: 7px;
+    line-height: 1.3;
+}
+.cool-title h3,.song-subtitle h3{
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.cool-title p{
+    font-size: 0.9rem;
+}
+.cool-time{
+    margin-top: 22px;
+}
+/* --------------- song ---------------- */
+
+.song-list{
+    margin-top: 10px;
+}
+.song-list-ele{
+    display: grid;
+    background: rgba(35,35,35,0.6);
+    grid-template-columns: 8% 86.5% 5.5%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.song-list-ele img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+.song-subtitle{
+    margin-top: 18px;
+}
+/* ------------------------------------ */
+@media screen and (max-width:600px) {
+    .cool-1{
+        width: 92%;
+    }
+    .cool-search{
+        grid-template-columns: 1fr;
+    }
+    .cool-ele1{
+        margin: 0;
+        grid-template-columns: 40% 60%;
+    }
+    .cool-img{
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+    }
+    .cool-info{
+        margin-top: 33px;
+        font-size: small;
+    }
+    .cool-card,.song-list-ele{
+        grid-template-columns: 20% 65% 15%;
+        margin: 5px 0;
+    }
+    .song-subtitle{
+        display: none;
+    }
+    .cool-title{
+        margin-top: 10px;
+    }
+    .cool-title h3{
+        font-size: 1rem;
+    }
+    .cool-title p{
+        font-size: 0.8rem;
+    }
+    /* -------------- */
+    .navbar{
+        grid-template-columns: 1fr;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    .logo-nav,.menu-side{
+        display:none;
+    }
+    .menu{
+        display: grid;
+        margin: 0;
+        border-radius: 0;
+    }
+}
+

@@ -1,0 +1,119 @@
+{% load static %}
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'assets/css/bg.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/form.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="b1"></div>
+    <div class="b2"></div>
+    <div class="b3"></div>
+    <div class="b4"></div>
+    <div class="fullblur"></div>
+
+    {% for message in messages %}
+    <style>
+        .alertBox{
+            position: fixed;
+            top:0;
+            left: 0;
+            z-index: 10;
+            height: 100%;
+            width: 100%;
+            padding-top: 100px;
+            backdrop-filter: blur(20px);
+        }
+        .alertContent{
+            display: grid;
+            margin: 0 auto;
+            width: 400px;
+            background: rgba(35,35,35,0.8);
+            padding: 5px 10px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .alertContent img{
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+        }
+        .alertContent p{
+            padding: 10px 0;
+        }
+        @media screen and (max-width:600px) {
+            .alertBox{
+                padding-top: 200px;
+            }
+            .alertContent{
+                width: 90%;
+            }
+            .alertContent img{
+                width: 180px;
+            }
+        }
+    </style>
+    <div class="alertBox">
+        <div class="alertContent">
+            <img src="{% static 'assets/img/invalid-credential.png'%}" alt="">
+            <p>{{ message }}</p>
+            <button onclick="removeAlert()">Try Again</button>
+        </div>
+    </div>
+    <script>
+        function removeAlert(){
+            document.querySelector('.alertBox').remove();
+        }
+    </script>
+    {% endfor %}
+
+    <main>
+    <div class="logo">
+        <img src="{% static 'assets/img/megamuzix-white-trans.png' %}" alt="">
+    </div>
+        <form action="/login" method="POST">
+        {% csrf_token %}
+        <div class="form-1">
+            <div class="headform">
+                <h1>Welcome Back</h1>
+                <a href="/register"><p>New to this ? Create Account</p></a>
+            </div>
+            <div class="icon-input">
+                <input type="text" name="username" placeholder="Username">
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
+            <div class="icon-input">
+                <input type="password" name='password' class="passput" placeholder="Password">
+                <i class="fa fa-lock" id="lock" style="font-size: larger;"></i>
+            </div>
+            <div class="fp">
+                <a href="/email" ><p>Forgot password ?</p></a>
+            </div>
+            <button type="submit">
+                Login
+            </button>
+            <div class="orline">
+                <div class="line"></div>
+                <p>or</p>
+                <div class="line"></div>
+            </div>
+            <div class="signGoogle">
+                <center>
+                    <p><i class="fa fa-google"></i> &nbsp Sign in with Google</p>
+                </center>
+            </div>
+        </div>
+        </form>
+        
+    </main>
+    
+    <script src="{% static 'assets/js/password.js' %}"></script>
+</body>
+</html>
