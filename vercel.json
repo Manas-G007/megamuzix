@@ -10,10 +10,14 @@
       }
     ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "megamuzix/wsgi.py"
-      }
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "megamuzix/wsgi.py"
+        }
     ]
   }
   
