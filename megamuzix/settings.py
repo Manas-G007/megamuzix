@@ -148,4 +148,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587  # Use 465 if you want to use SSL
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'manasjiok100@gmail.com'
-EMAIL_HOST_PASSWORD = 'rgkrfxsrzrljcaeg' 
+EMAIL_HOST_PASSWORD = 'you-aint-got-chance' 
